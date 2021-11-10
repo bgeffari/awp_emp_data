@@ -93,9 +93,9 @@ class AcademicFacilityController extends Controller
         $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
     } else {
         $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
-        $SubCertificateTypes =  SubCertificateType::whereHas('main_certificate_types', function ($query) use($main_certificate_typeId) {$query->where('id', $main_certificate_typeId);})->get();
-        foreach ($SubCertificateTypes as $SubCertificateType) {
-            $html .= '<option value="'.$SubCertificateType->id.'">'.$SubCertificateType->sub_certificate_type.'</option>';
+        $AcademicFacilitys =  AcademicFacility::whereHas('main_certificate_types', function ($query) use($main_certificate_typeId) {$query->where('id', $main_certificate_typeId);})->get();
+        foreach ($AcademicFacilitys as $AcademicFacility) {
+            $html .= '<option value="'.$AcademicFacility->id.'">'.$AcademicFacility->academic_facility.'</option>';
         }
     }
 
