@@ -2,6 +2,10 @@
 
 Route::view('/', 'auth.login');
 Route::get('/emp_data', 'Frontend\AwpEmpDataController@create');
+Route::get('academic-facilities/get_by_main_certificate_type', 'Frontend\AcademicFacilityController@get_by_main_certificate_type')->name('academic-facilities.get_by_main_certificate_type');
+Route::get('majors/get_by_sub_certificate_type', 'Frontend\MajorController@get_by_sub_certificate_type')->name('majors.get_by_sub_certificate_type');
+Route::get('sub-certificate-types/get_by_main_certificate_type', 'Frontend\SubCertificateTypesController@get_by_main_certificate_type')->name('sub-certificate-types.get_by_main_certificate_type');
+
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
@@ -69,17 +73,14 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::resource('main-certificate-types', 'MainCertificateTypeController');
 
     // Sub Certificate Types
-    Route::get('sub-certificate-types/get_by_main_certificate_type', 'SubCertificateTypesController@get_by_main_certificate_type')->name('sub-certificate-types.get_by_main_certificate_type');
     Route::delete('sub-certificate-types/destroy', 'SubCertificateTypesController@massDestroy')->name('sub-certificate-types.massDestroy');
     Route::resource('sub-certificate-types', 'SubCertificateTypesController');
     
     // Major
-    Route::get('majors/get_by_sub_certificate_type', 'MajorController@get_by_sub_certificate_type')->name('majors.get_by_sub_certificate_type');
     Route::delete('majors/destroy', 'MajorController@massDestroy')->name('majors.massDestroy');
     Route::resource('majors', 'MajorController');
 
     // Academic Facility
-    Route::get('academic-facilities/get_by_main_certificate_type', 'AcademicFacilityController@get_by_main_certificate_type')->name('academic-facilities.get_by_main_certificate_type');
     Route::delete('academic-facilities/destroy', 'AcademicFacilityController@massDestroy')->name('academic-facilities.massDestroy');
     Route::resource('academic-facilities', 'AcademicFacilityController');
     
