@@ -201,7 +201,7 @@ Dropzone.options.lastCertificateFileDropzone = {
                 url: "{{ route('frontend.sub-certificate-types.get_by_main_certificate_type') }}?main_certificate_type_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
-                    $('#sub_certificate_type').html(data.html);
+                    $('#sub_certificate_type_id').html(data.html);
                 }
             });
         });
