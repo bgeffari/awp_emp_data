@@ -158,7 +158,7 @@ return [
             'last_certificate_country'        => 'Last Certificate Country',
             'last_certificate_country_helper' => ' ',
             'mobile'                          => 'Mobile',
-            'mobile_helper'                   => ' ',
+            'mobile_helper'                   => 'Without leading zero, Like 5xxxxxxxx',
             'last_certificate_file'           => 'Last Certificate File',
             'last_certificate_file_helper'    => 'Attach a scan copy of your Last Certificate',
             'created_at'                      => 'Created at',
