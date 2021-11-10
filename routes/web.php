@@ -70,7 +70,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     // Sub Certificate Types
     Route::delete('sub-certificate-types/destroy', 'SubCertificateTypesController@massDestroy')->name('sub-certificate-types.massDestroy');
     Route::resource('sub-certificate-types', 'SubCertificateTypesController');
-
+    Route::get('sub_certificate_type/get_by_main_certificate_type', 'SubCertificateTypesController@get_by_main_certificate_type')->name('admin.sub_certificate_type.get_by_main_certificate_type');
     // Major
     Route::delete('majors/destroy', 'MajorController@massDestroy')->name('majors.massDestroy');
     Route::resource('majors', 'MajorController');
@@ -78,7 +78,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     // Academic Facility
     Route::delete('academic-facilities/destroy', 'AcademicFacilityController@massDestroy')->name('academic-facilities.massDestroy');
     Route::resource('academic-facilities', 'AcademicFacilityController');
-
+    
     // Awp Emp Data
     Route::delete('awp-emp-datas/destroy', 'AwpEmpDataController@massDestroy')->name('awp-emp-datas.massDestroy');
     Route::post('awp-emp-datas/media', 'AwpEmpDataController@storeMedia')->name('awp-emp-datas.storeMedia');
