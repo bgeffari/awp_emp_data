@@ -41,6 +41,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.awpEmpData.fields.nid') }}
+                        </th>
+                        <td>
+                            {{ $awpEmpData->nid }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.awpEmpData.fields.main_certificate_type') }}
                         </th>
                         <td>
@@ -97,6 +105,14 @@
                                     {{ trans('global.view_file') }}
                                 </a>
                             @endforeach
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.awpEmpData.fields.extra') }}
+                        </th>
+                        <td>
+                            {{ $awpEmpData->extra }}
                         </td>
                     </tr>
                 </tbody>

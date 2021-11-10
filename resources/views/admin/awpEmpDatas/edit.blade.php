@@ -31,6 +31,16 @@
                 <span class="help-block">{{ trans('cruds.awpEmpData.fields.full_name_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="nid">{{ trans('cruds.awpEmpData.fields.nid') }}</label>
+                <input class="form-control {{ $errors->has('nid') ? 'is-invalid' : '' }}" type="number" name="nid" id="nid" value="{{ old('nid', $awpEmpData->nid) }}" step="1" required>
+                @if($errors->has('nid'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('nid') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.awpEmpData.fields.nid_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <label class="required" for="main_certificate_type_id">{{ trans('cruds.awpEmpData.fields.main_certificate_type') }}</label>
                 <select class="form-control select2 {{ $errors->has('main_certificate_type') ? 'is-invalid' : '' }}" name="main_certificate_type_id" id="main_certificate_type_id" required>
                     @foreach($main_certificate_types as $id => $entry)
@@ -112,7 +122,7 @@
                 <span class="help-block">{{ trans('cruds.awpEmpData.fields.mobile_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="last_certificate_file">{{ trans('cruds.awpEmpData.fields.last_certificate_file') }}</label>
+                <label class="required" for="last_certificate_file">{{ trans('cruds.awpEmpData.fields.last_certificate_file') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('last_certificate_file') ? 'is-invalid' : '' }}" id="last_certificate_file-dropzone">
                 </div>
                 @if($errors->has('last_certificate_file'))
@@ -121,6 +131,16 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.awpEmpData.fields.last_certificate_file_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="extra">{{ trans('cruds.awpEmpData.fields.extra') }}</label>
+                <textarea class="form-control {{ $errors->has('extra') ? 'is-invalid' : '' }}" name="extra" id="extra">{{ old('extra', $awpEmpData->extra) }}</textarea>
+                @if($errors->has('extra'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('extra') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.awpEmpData.fields.extra_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

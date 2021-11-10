@@ -32,6 +32,9 @@
                             {{ trans('cruds.awpEmpData.fields.full_name') }}
                         </th>
                         <th>
+                            {{ trans('cruds.awpEmpData.fields.nid') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.awpEmpData.fields.main_certificate_type') }}
                         </th>
                         <th>
@@ -53,6 +56,9 @@
                             {{ trans('cruds.awpEmpData.fields.last_certificate_file') }}
                         </th>
                         <th>
+                            {{ trans('cruds.awpEmpData.fields.extra') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -71,6 +77,9 @@
                             </td>
                             <td>
                                 {{ $awpEmpData->full_name ?? '' }}
+                            </td>
+                            <td>
+                                {{ $awpEmpData->nid ?? '' }}
                             </td>
                             <td>
                                 {{ $awpEmpData->main_certificate_type->certificate_type ?? '' }}
@@ -96,6 +105,9 @@
                                         {{ trans('global.view_file') }}
                                     </a>
                                 @endforeach
+                            </td>
+                            <td>
+                                {{ $awpEmpData->extra ?? '' }}
                             </td>
                             <td>
                                 @can('awp_emp_data_show')

@@ -169,6 +169,10 @@ return [
             'deleted_at_helper'               => ' ',
             'full_name'                       => 'Full Name',
             'full_name_helper'                => ' ',
+            'nid'                             => 'national id/iqama number',
+            'nid_helper'                      => ' ',
+            'extra'                           => 'Extra Info/ Skills',
+            'extra_helper'                    => 'More about your skills',
         ],
     ],
 ];
