@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'HR Emp Data',
+    'site_title' => 'معلومات الموظفين',
 ];

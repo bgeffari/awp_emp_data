@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" @if( app()->getLocale() == "ar" ) dir='rtl' @endif>
 
 <head>
     <meta charset="utf-8">
@@ -15,7 +15,11 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    @if( app()->getLocale() == "ar" )
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.1.3/css/bootstrap.min.css" integrity="sha384-Jt6Tol1A2P9JBesGeCxNrxkmRFSjWCBW1Af7CSQSKsfMVQCqnUVWhZzG0puJMCK6" crossorigin="anonymous">
+    @else
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" />
+    @endif
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
     <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet" />
     <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet" />
@@ -45,14 +49,18 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                        @guest
-                        @else
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('frontend.home') }}">
-                                    {{ __('Dashboard') }}
-                                </a>
-                            </li>
-                        @endguest
+                    @if(count(config('panel.available_languages', [])) > 1)
+                    <li class="c-header-nav-item dropdown d-md-down-none">
+                        <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            {{ strtoupper(app()->getLocale()) }}
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            @foreach(config('panel.available_languages') as $langLocale => $langName)
+                                <a class="dropdown-item" href="{{ url()->current() }}?change_language={{ $langLocale }}">{{ strtoupper($langLocale) }} ({{ $langName }})</a>
+                            @endforeach
+                        </div>
+                    </li>
+                @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -60,11 +68,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ trans('global.login') }}</a>
                             </li>
                             @if(Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ trans('global.register') }}</a>
                                 </li>
                             @endif
                         @else

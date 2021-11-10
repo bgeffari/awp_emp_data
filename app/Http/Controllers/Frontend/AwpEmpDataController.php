@@ -57,7 +57,7 @@ class AwpEmpDataController extends Controller
             Media::whereIn('id', $media)->update(['model_id' => $awpEmpData->id]);
         }
 
-        return redirect()->route('frontend.awp-emp-datas.index');
+        return redirect()->route('tankyoupage');
     }
 
     public function edit(AwpEmpData $awpEmpData)

@@ -70,6 +70,8 @@ return [
     'to'                             => 'To',
     'reply'                          => 'Reply',
     'body'                           => 'Body',
+    'thankyou_title'                 => 'Thank You!',
+    'thankyou_msg'                   => 'Thank you for your cooperation and for providing us with updated information about your qualifications!',
     'discard'                        => 'Discard',
     'datatables'                     => [
         'copy'          => 'Copy',
