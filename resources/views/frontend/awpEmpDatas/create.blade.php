@@ -198,7 +198,7 @@ Dropzone.options.lastCertificateFileDropzone = {
     <script type="text/javascript">
         $("#main_certificate_type_id").change(function(){
             $.ajax({
-                url: "{{ route('Frontend.sub_certificate_type.get_by_main_certificate_type') }}?main_certificate_type_id=" + $(this).val(),
+                url: "{{ route('frontend.sub_certificate_type.get_by_main_certificate_type') }}?main_certificate_type_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#sub_certificate_type').html(data.html);
