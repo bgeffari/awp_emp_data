@@ -33,6 +33,14 @@
                     </tr>
                     <tr>
                         <th>
+                            {{ trans('cruds.awpEmpData.fields.full_name') }}
+                        </th>
+                        <td>
+                            {{ $awpEmpData->full_name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
                             {{ trans('cruds.awpEmpData.fields.main_certificate_type') }}
                         </th>
                         <td>

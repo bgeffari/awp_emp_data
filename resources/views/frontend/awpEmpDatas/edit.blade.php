@@ -24,6 +24,16 @@
                             <span class="help-block">{{ trans('cruds.awpEmpData.fields.emp_sap_number_helper') }}</span>
                         </div>
                         <div class="form-group">
+                            <label class="required" for="full_name">{{ trans('cruds.awpEmpData.fields.full_name') }}</label>
+                            <input class="form-control" type="text" name="full_name" id="full_name" value="{{ old('full_name', $awpEmpData->full_name) }}" required>
+                            @if($errors->has('full_name'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('full_name') }}
+                                </div>
+                            @endif
+                            <span class="help-block">{{ trans('cruds.awpEmpData.fields.full_name_helper') }}</span>
+                        </div>
+                        <div class="form-group">
                             <label class="required" for="main_certificate_type_id">{{ trans('cruds.awpEmpData.fields.main_certificate_type') }}</label>
                             <select class="form-control select2" name="main_certificate_type_id" id="main_certificate_type_id" required>
                                 @foreach($main_certificate_types as $id => $entry)
