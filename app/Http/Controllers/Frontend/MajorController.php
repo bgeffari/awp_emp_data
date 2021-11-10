@@ -83,4 +83,24 @@ class MajorController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+
+    public function get_by_sub_certificate_type(Request $request)
+{
+    
+    $sub_certificate_typeId = $request->sub_certificate_type_id;
+
+    if (!$sub_certificate_typeId) {
+        $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
+    } else {
+        $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
+        $Majors =  Major::whereHas('sub_certificate_types', function ($query) use($sub_certificate_typeId) {$query->where('id', $sub_certificate_typeId);})->get();
+        foreach ($Majors as $Major) {
+            $html .= '<option value="'.$Major->id.'">'.$Major->major.'</option>';
+        }
+    }
+
+    return response()->json(['html' => $html]);
+}
+
 }

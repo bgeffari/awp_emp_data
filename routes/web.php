@@ -73,10 +73,12 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::resource('sub-certificate-types', 'SubCertificateTypesController');
     
     // Major
+    Route::get('majors/get_by_sub_certificate_type', 'MajorController@get_by_sub_certificate_type')->name('majors.get_by_sub_certificate_type');
     Route::delete('majors/destroy', 'MajorController@massDestroy')->name('majors.massDestroy');
     Route::resource('majors', 'MajorController');
 
     // Academic Facility
+    Route::get('academic-facilities/get_by_main_certificate_type', 'AcademicFacilityController@get_by_main_certificate_type')->name('academic-facilities.get_by_main_certificate_type');
     Route::delete('academic-facilities/destroy', 'AcademicFacilityController@massDestroy')->name('academic-facilities.massDestroy');
     Route::resource('academic-facilities', 'AcademicFacilityController');
     

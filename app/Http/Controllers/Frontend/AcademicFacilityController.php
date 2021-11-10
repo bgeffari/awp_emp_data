@@ -83,4 +83,23 @@ class AcademicFacilityController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function get_by_main_certificate_type(Request $request)
+{
+    
+    $main_certificate_typeId = $request->main_certificate_type_id;
+
+    if (!$main_certificate_typeId) {
+        $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
+    } else {
+        $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
+        $SubCertificateTypes =  SubCertificateType::whereHas('main_certificate_types', function ($query) use($main_certificate_typeId) {$query->where('id', $main_certificate_typeId);})->get();
+        foreach ($SubCertificateTypes as $SubCertificateType) {
+            $html .= '<option value="'.$SubCertificateType->id.'">'.$SubCertificateType->sub_certificate_type.'</option>';
+        }
+    }
+
+    return response()->json(['html' => $html]);
+}
+
 }
