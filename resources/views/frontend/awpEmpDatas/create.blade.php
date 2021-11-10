@@ -203,7 +203,7 @@ Dropzone.options.lastCertificateFileDropzone = {
             });
         });
 
-        $("#sub_certificate_type_id").change(function(){
+        $("#main_certificate_type_id").change(function(){
             $.ajax({
                 url: "{{ route('frontend.majors.get_by_sub_certificate_type') }}?sub_certificate_type_id=" + $(this).val(),
                 method: 'GET',
@@ -213,12 +213,23 @@ Dropzone.options.lastCertificateFileDropzone = {
             });
         });
 
+
         $("#main_certificate_type_id").change(function(){
             $.ajax({
                 url: "{{ route('frontend.academic-facilities.get_by_main_certificate_type') }}?main_certificate_type_id=" + $(this).val(),
                 method: 'GET',
                 success: function(data) {
                     $('#academic_facility_id').html(data.html);
+                }
+            });
+        });
+
+        $("#sub_certificate_type_id").change(function(){
+            $.ajax({
+                url: "{{ route('frontend.majors.get_by_sub_certificate_type') }}?sub_certificate_type_id=" + $(this).val(),
+                method: 'GET',
+                success: function(data) {
+                    $('#major_id').html(data.html);
                 }
             });
         });
