@@ -1,6 +1,7 @@
 <?php
 
 Route::view('/', 'auth.login');
+Route::get('/emp_data', 'Frontend\AwpEmpDataController@create');
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
