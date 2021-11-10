@@ -1,6 +1,11 @@
 <?php
 
 Route::view('/', 'welcome');
+    // Awp Emp Data
+    Route::delete('awp-emp-datas/destroy', 'AwpEmpDataController@massDestroy')->name('awp-emp-datas.massDestroy');
+    Route::post('awp-emp-datas/media', 'AwpEmpDataController@storeMedia')->name('awp-emp-datas.storeMedia');
+    Route::post('awp-emp-datas/ckmedia', 'AwpEmpDataController@storeCKEditorImages')->name('awp-emp-datas.storeCKEditorImages');
+    Route::resource('awp-emp-datas', 'AwpEmpDataController');
 Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
