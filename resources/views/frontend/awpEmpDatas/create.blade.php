@@ -51,7 +51,7 @@
                             <label class="required" for="sub_certificate_type_id">{{ trans('cruds.awpEmpData.fields.sub_certificate_type') }}</label>
                             <select class="form-control select2" name="sub_certificate_type_id" id="sub_certificate_type_id" required>
                                 
-                            
+                            <option value="">{{ trans('global.pleaseSelect') }}</option>
                               
                             </select>
                             @if($errors->has('sub_certificate_type'))
@@ -64,7 +64,7 @@
                         <div class="form-group">
                             <label class="required" for="major_id">{{ trans('cruds.awpEmpData.fields.major') }}</label>
                             <select class="form-control select2" name="major_id" id="major_id" required>
-                            
+                            <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
                             @if($errors->has('major'))
                                 <div class="invalid-feedback">
@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <label class="required" for="academic_facility_id">{{ trans('cruds.awpEmpData.fields.academic_facility') }}</label>
                             <select class="form-control select2" name="academic_facility_id" id="academic_facility_id" required>
-                            
+                            <option value="">{{ trans('global.pleaseSelect') }}</option>
                             </select>
                             @if($errors->has('academic_facility'))
                                 <div class="invalid-feedback">
