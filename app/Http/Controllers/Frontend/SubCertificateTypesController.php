@@ -92,7 +92,7 @@ class SubCertificateTypesController extends Controller
         $html = '<option value="">'.trans('global.pleaseSelect').'</option>';
     } else {
         $html = '';
-        $SubCertificateTypes = SubCertificateType::with('main_certificate_types')where('main_certificate_type_id', '=', $request->main_certificate_type_id)->get();
+        $SubCertificateTypes = SubCertificateType::with('main_certificate_types')->where('main_certificate_type_id', '=', $request->main_certificate_type_id)->get();
         foreach ($SubCertificateTypes as $SubCertificateType) {
             $html .= '<option value="'.$SubCertificateType->id.'">'.$SubCertificateType->sub_certificate_type.'</option>';
         }
