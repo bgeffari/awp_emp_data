@@ -49,7 +49,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    @if(count(config('panel.available_languages', [])) > 1)
+                    
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @if(count(config('panel.available_languages', [])) > 1)
                     <li class="c-header-nav-item dropdown d-md-down-none">
                         <a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             {{ strtoupper(app()->getLocale()) }}
@@ -61,92 +67,6 @@
                         </div>
                     </li>
                 @endif
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ trans('global.login') }}</a>
-                            </li>
-                            @if(Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ trans('global.register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                                    <a class="dropdown-item" href="{{ route('frontend.profile.index') }}">{{ __('My profile') }}</a>
-
-                                    @can('user_management_access')
-                                        <a class="dropdown-item disabled" href="#">
-                                            {{ trans('cruds.userManagement.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('permission_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.permissions.index') }}">
-                                            {{ trans('cruds.permission.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('role_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.roles.index') }}">
-                                            {{ trans('cruds.role.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('user_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.users.index') }}">
-                                            {{ trans('cruds.user.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('certificate_mangment_access')
-                                        <a class="dropdown-item disabled" href="#">
-                                            {{ trans('cruds.certificateMangment.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('main_certificate_type_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.main-certificate-types.index') }}">
-                                            {{ trans('cruds.mainCertificateType.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('sub_certificate_type_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.sub-certificate-types.index') }}">
-                                            {{ trans('cruds.subCertificateType.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('major_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.majors.index') }}">
-                                            {{ trans('cruds.major.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('academic_facility_access')
-                                        <a class="dropdown-item ml-3" href="{{ route('frontend.academic-facilities.index') }}">
-                                            {{ trans('cruds.academicFacility.title') }}
-                                        </a>
-                                    @endcan
-                                    @can('awp_emp_data_access')
-                                        <a class="dropdown-item" href="{{ route('frontend.awp-emp-datas.index') }}">
-                                            {{ trans('cruds.awpEmpData.title') }}
-                                        </a>
-                                    @endcan
-
-                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
                     </ul>
                 </div>
             </div>
