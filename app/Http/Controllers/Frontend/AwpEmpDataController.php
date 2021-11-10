@@ -32,7 +32,7 @@ class AwpEmpDataController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('awp_emp_data_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        
 
         $main_certificate_types = MainCertificateType::pluck('certificate_type', 'id')->prepend(trans('global.pleaseSelect'), '');
 
