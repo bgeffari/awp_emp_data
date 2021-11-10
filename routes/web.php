@@ -2,9 +2,9 @@
 
 Route::view('/', 'auth.login');
 Route::get('/emp_data', 'Frontend\AwpEmpDataController@create');
-Route::get('academic-facilities/get_by_main_certificate_type', 'Frontend\AcademicFacilityController@get_by_main_certificate_type')->name('academic-facilities.get_by_main_certificate_type');
-Route::get('majors/get_by_sub_certificate_type', 'Frontend\MajorController@get_by_sub_certificate_type')->name('majors.get_by_sub_certificate_type');
-Route::get('sub-certificate-types/get_by_main_certificate_type', 'Frontend\SubCertificateTypesController@get_by_main_certificate_type')->name('sub-certificate-types.get_by_main_certificate_type');
+Route::get('academic-facilities/get_by_main_certificate_type', 'Frontend\AcademicFacilityController@get_by_main_certificate_type')->name('frontend.academic-facilities.get_by_main_certificate_type');
+Route::get('majors/get_by_sub_certificate_type', 'Frontend\MajorController@get_by_sub_certificate_type')->name('frontend.majors.get_by_sub_certificate_type');
+Route::get('sub-certificate-types/get_by_main_certificate_type', 'Frontend\SubCertificateTypesController@get_by_main_certificate_type')->name('frontend.sub-certificate-types.get_by_main_certificate_type');
 
 Auth::routes(['register' => false]);
 
