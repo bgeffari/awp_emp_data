@@ -29,6 +29,9 @@
                             {{ trans('cruds.awpEmpData.fields.emp_sap_number') }}
                         </th>
                         <th>
+                            {{ trans('cruds.awpEmpData.fields.full_name') }}
+                        </th>
+                        <th>
                             {{ trans('cruds.awpEmpData.fields.main_certificate_type') }}
                         </th>
                         <th>
@@ -65,6 +68,9 @@
                             </td>
                             <td>
                                 {{ $awpEmpData->emp_sap_number ?? '' }}
+                            </td>
+                            <td>
+                                {{ $awpEmpData->full_name ?? '' }}
                             </td>
                             <td>
                                 {{ $awpEmpData->main_certificate_type->certificate_type ?? '' }}

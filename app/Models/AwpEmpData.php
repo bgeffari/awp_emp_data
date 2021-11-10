@@ -35,6 +35,7 @@ class AwpEmpData extends Model implements HasMedia
 
     protected $fillable = [
         'emp_sap_number',
+        'full_name',
         'main_certificate_type_id',
         'sub_certificate_type_id',
         'major_id',

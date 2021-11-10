@@ -24,6 +24,10 @@ class StoreAwpEmpDataRequest extends FormRequest
                 'max:2147483647',
                 'unique:awp_emp_datas,emp_sap_number',
             ],
+            'full_name' => [
+                'string',
+                'required',
+            ],
             'main_certificate_type_id' => [
                 'required',
                 'integer',
