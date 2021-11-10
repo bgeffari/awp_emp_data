@@ -6,6 +6,6 @@ return [
     'primary_language'    => 'en',
     'available_languages' => [
         'en' => 'English',
-        'ar' => 'Arabic',
+        'ar' => 'عربي',
     ],
 ];

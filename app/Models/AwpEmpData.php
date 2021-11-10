@@ -17,8 +17,8 @@ class AwpEmpData extends Model implements HasMedia
     use HasFactory;
 
     public const LAST_CERTIFICATE_COUNTRY_RADIO = [
-        '1' => 'Saudi',
-        '2' => 'Other Country',
+        '1' => 'Saudi - السعودية',
+        '2' => 'Other Country - دولة أخرى',
     ];
 
     public $table = 'awp_emp_datas';
