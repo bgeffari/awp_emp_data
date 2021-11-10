@@ -94,7 +94,7 @@ class SubCertificateTypesController extends Controller
         $html = '';
         $SubCertificateTypes = SubCertificateType::where('id', $request->main_certificate_type_id)->get();
         foreach ($SubCertificateTypes as $SubCertificateType) {
-            $html .= '<option value="'.$SubCertificateType->id.'">'.$SubCertificateType->sub_certificate_types.'</option>';
+            $html .= '<option value="'.$SubCertificateType->id.'">'.$SubCertificateType->sub_certificate_type.'</option>';
         }
     }
 
