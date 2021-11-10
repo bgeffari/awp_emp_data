@@ -68,9 +68,10 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::resource('main-certificate-types', 'MainCertificateTypeController');
 
     // Sub Certificate Types
+    Route::get('sub-certificate-types/get_by_main_certificate_type', 'SubCertificateTypesController@get_by_main_certificate_type')->name('sub-certificate-types.get_by_main_certificate_type');
     Route::delete('sub-certificate-types/destroy', 'SubCertificateTypesController@massDestroy')->name('sub-certificate-types.massDestroy');
     Route::resource('sub-certificate-types', 'SubCertificateTypesController');
-    Route::get('sub-certificate-types/get_by_main_certificate_type', 'SubCertificateTypesController@get_by_main_certificate_type')->name('sub-certificate-types.get_by_main_certificate_type');
+    
     // Major
     Route::delete('majors/destroy', 'MajorController@massDestroy')->name('majors.massDestroy');
     Route::resource('majors', 'MajorController');
